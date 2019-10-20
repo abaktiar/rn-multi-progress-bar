@@ -1,0 +1,15 @@
+{
+  "name": "rn-progress-bar",
+  "version": "1.0.0",
+  "description": "A Multicolor Progress Bar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Al Baktiar",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abaktiar/rn-progress-bar.git"
+  }
+}
