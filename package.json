@@ -1,5 +1,5 @@
 {
-  "name": "rn-progress-bar",
+  "name": "rn-progress-bar-m",
   "version": "1.0.0",
   "description": "A Multicolor Progress Bar",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abaktiar/rn-progress-bar.git"
+    "url": "git+https://github.com/abaktiar/rn-progress-bar-m.git"
   }
 }
