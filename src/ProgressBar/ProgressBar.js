@@ -9,7 +9,7 @@ class ProgressBar extends React.Component {
   componentDidMount = () => {
     Animated.timing(this.state.animatedValue, {
       toValue: 1,
-      duration: this.props.animateDuration || 500,
+      duration: this.props.animateDuration || 1000,
       easing: Easing.linear
     }).start();
 

@@ -1,7 +1,7 @@
 {
   "name": "rn-multi-progress-bar",
-  "version": "1.0.6",
-  "description": "A Multi Progress Bar.",
+  "version": "1.0.7",
+  "description": "React native Multi Progress Bar component",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
