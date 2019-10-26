@@ -1,8 +1,9 @@
 {
-  "name": "rn-progress-bar-m",
-  "version": "1.0.0",
-  "description": "A Multicolor Progress Bar",
+  "name": "rn-multi-progress-bar",
+  "version": "1.0.5",
+  "description": "A Multi Progress Bar.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

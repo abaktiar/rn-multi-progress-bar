@@ -4,7 +4,7 @@ import { View, Animated, Easing } from "react-native";
 class ProgressBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pProps: [], animatedValue: new Animated.Value(0) };
+    this.state = { progressData: [], animatedValue: new Animated.Value(0) };
   }
   componentDidMount = () => {
     Animated.timing(this.state.animatedValue, {
@@ -12,61 +12,49 @@ class ProgressBar extends React.Component {
       duration: this.props.animateDuration || 500,
       easing: Easing.linear
     }).start();
+
+    let totalProgress = this.props.data.reduce((acc, d) => acc + d.progress, 0);
     let value = 0;
-    let props = this.props.progress.map((d, i) => {
-      value = value + (d / this.props.maxProgress) * 100;
+    let data = this.props.data.map(d => {
+      value = value + (d.progress / totalProgress) * 100;
       return {
         progress: value,
-        color: this.props.colors[i] ? this.props.colors[i] : "rgb(255, 193, 2)"
+        color: d.color
       };
     });
-    props = props.reverse();
-    this.setState({ pProps: props });
+    data = data.reverse();
+
+    this.setState({ progressData: data });
   };
   render() {
     const { barHeight, shouldAnimate } = this.props;
-    const { pProps } = this.state;
-    let v = 0;
-    let animatedValue = this.props.progress.map((value, i) => {
-      v = v + (value / this.props.maxProgress) * 100;
+    const { progressData } = this.state;
+
+    let animatedValue = this.state.progressData.map((d, i) => {
       return this.state.animatedValue.interpolate({
         inputRange: [0, 1],
-        outputRange: ["0%", `${v}%`]
+        outputRange: ["0%", `${d.progress}%`]
       });
     });
-
-    animatedValue = animatedValue.reverse();
 
     return (
       <View
         style={{
           position: "relative",
           marginTop: 16,
-          marginBottom: 16 + barHeight,
+          marginBottom: 16 + (barHeight || 8),
           width: "100%"
         }}
       >
-        <View
-          style={{
-            position: "absolute",
-            height: barHeight,
-            width: "100%",
-            backgroundColor:
-              this.props.defaultBackground || "rgb(229, 232, 249)",
-            borderRadius: 5
-          }}
-        />
-        {pProps.map((d, i) => {
+        {progressData.map((d, i) => {
           return (
             <Animated.View
               key={i}
               style={{
                 position: "absolute",
-                height: barHeight,
+                height: barHeight || 8,
                 width:
-                  shouldAnimate && shouldAnimate === true
-                    ? animatedValue[i]
-                    : `${d.progress}%`,
+                  shouldAnimate === true ? animatedValue[i] : `${d.progress}%`,
                 backgroundColor: d.color,
                 borderRadius: 5
               }}
