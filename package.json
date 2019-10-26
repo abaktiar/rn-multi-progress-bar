@@ -1,6 +1,6 @@
 {
   "name": "rn-multi-progress-bar",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Multi Progress Bar.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -12,5 +12,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abaktiar/rn-progress-bar-m.git"
-  }
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "progress-bar",
+    "multi-progress-bar"
+  ]
 }
